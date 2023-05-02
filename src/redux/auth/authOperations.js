@@ -69,24 +69,17 @@ export const fetchCurrentUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
+    if (!persistedToken) {
       return thunkAPI.rejectWithValue();
     }
 
     setToken(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
+      console.log('opera', data);
       return data;
     } catch (error) {
-      // TODO: Добавить обработку ошибки error.message
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-// const operations = {
-//   register,
-//   logOut,
-//   logIn,
-//   fetchCurrentUser,
-// };
-// export default operations;
