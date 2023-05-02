@@ -8,7 +8,7 @@ export default function Navigation() {
   return (
     <ContainerNavigation>
       <li>
-        <NavLink to="/Home">Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       {isLoggedIn && (
         <li>
