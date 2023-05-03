@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import MUI from 'components/MUI';
 
 const styles = {
   form: {
@@ -9,7 +10,7 @@ const styles = {
   label: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 15,
+    marginBottom: 50,
   },
 };
 
@@ -46,13 +47,21 @@ export default function RegisterForm() {
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <MUI.TextField
+            label="Name"
+            helperText="Please enter your name"
+            focused
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
         </label>
 
         <label style={styles.label}>
-          Email
-          <input
+          <MUI.TextField
+            label="Email"
+            helperText="Please enter your email"
+            focused
             type="email"
             name="email"
             value={email}
@@ -61,8 +70,10 @@ export default function RegisterForm() {
         </label>
 
         <label style={styles.label}>
-          Password
-          <input
+          <MUI.TextField
+            label="Password"
+            focused
+            helperText="Please enter your password"
             type="password"
             name="password"
             value={password}
@@ -70,7 +81,9 @@ export default function RegisterForm() {
           />
         </label>
 
-        <button type="submit">Register</button>
+        <MUI.Button variant="contained" type="submit" color="success">
+          Refister
+        </MUI.Button>
       </form>
     </div>
   );

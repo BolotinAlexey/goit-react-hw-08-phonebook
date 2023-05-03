@@ -1,3 +1,4 @@
+import MUI from 'components/MUI';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
@@ -9,7 +10,7 @@ const styles = {
   label: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 15,
+    marginBottom: 50,
   },
 };
 
@@ -42,8 +43,10 @@ export default function Login() {
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          mail
-          <input
+          <MUI.TextField
+            label="Email"
+            helperText="Please enter your email"
+            focused
             type="email"
             name="email"
             value={email}
@@ -52,8 +55,10 @@ export default function Login() {
         </label>
 
         <label style={styles.label}>
-          password
-          <input
+          <MUI.TextField
+            label="Password"
+            focused
+            helperText="Please enter your password"
             type="password"
             name="password"
             value={password}
@@ -61,7 +66,9 @@ export default function Login() {
           />
         </label>
 
-        <button type="submit">LogIn</button>
+        <MUI.Button variant="contained" type="submit" color="success">
+          LogIn
+        </MUI.Button>
       </form>
     </div>
   );
