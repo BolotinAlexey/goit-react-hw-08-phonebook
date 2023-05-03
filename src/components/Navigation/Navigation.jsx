@@ -1,20 +1,24 @@
 import { NavLink } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 
-import { ContainerNavigation } from './Navigation.styled.js';
+import MUI from 'components/MUI';
 
 export default function Navigation() {
   const { isLoggedIn } = useAuth();
   return (
-    <ContainerNavigation>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+    <MUI.Toolbar>
+      <NavLink to="/">
+        <MUI.Button sx={{ color: 'white' }} variant="outlined">
+          Home
+        </MUI.Button>
+      </NavLink>
       {isLoggedIn && (
-        <li>
-          <NavLink to="/contacts">Contacts</NavLink>
-        </li>
+        <NavLink to="/contacts">
+          <MUI.Button sx={{ color: 'white' }} variant="outlined">
+            Contacts
+          </MUI.Button>
+        </NavLink>
       )}
-    </ContainerNavigation>
+    </MUI.Toolbar>
   );
 }

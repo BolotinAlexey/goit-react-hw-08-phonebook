@@ -1,15 +1,20 @@
-import { ContainerAuthNav } from './AuthNav.styled.js';
 import { NavLink } from 'react-router-dom';
+import MUI from 'components/MUI.js';
 
 export default function AuthNav() {
   return (
-    <ContainerAuthNav>
-      <li>
-        <NavLink to="/register">Register</NavLink>
-      </li>
-      <li>
-        <NavLink to="/login">Logi In</NavLink>
-      </li>
-    </ContainerAuthNav>
+    <>
+      <NavLink to="/register">
+        <MUI.Button sx={{ color: 'white' }} variant="outlined">
+          Register
+        </MUI.Button>
+      </NavLink>
+
+      <NavLink to="/login">
+        <MUI.Button sx={{ color: 'white' }} variant="outlined">
+          LogIn
+        </MUI.Button>
+      </NavLink>
+    </>
   );
 }
