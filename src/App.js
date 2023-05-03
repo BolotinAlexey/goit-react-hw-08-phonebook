@@ -47,6 +47,7 @@ function App() {
             path="/contacts"
             element={<PrivateRoute component={<Contacts />} redirectTo="/" />}
           />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     )
