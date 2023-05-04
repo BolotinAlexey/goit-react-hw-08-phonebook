@@ -9,7 +9,7 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  Notiflix.Notify.error(action.payload);
+  Notiflix.Notify.failure(action.payload);
 };
 
 const contactsSlice = createSlice({
