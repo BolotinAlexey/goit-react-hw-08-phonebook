@@ -2,6 +2,7 @@ import useAuth from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations.js';
 import MUI from 'components/MUI.js';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { ContainerUserMenu } from './UserMenu.styled.js';
 
@@ -23,6 +24,7 @@ export default function UserMenu() {
           <p>Email: {user.email}</p>
         </MUI.Box>
         <MUI.Button
+          startIcon={<LogoutIcon />}
           variant="contained"
           color="error"
           type="button"
