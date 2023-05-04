@@ -1,8 +1,6 @@
 import {
   AppBar,
   Container,
-  BottomNavigation,
-  BottomNavigationAction,
   Typography,
   Box,
   Toolbar,
@@ -15,8 +13,6 @@ import {
 const MUI = {
   AppBar,
   Container,
-  BottomNavigation,
-  BottomNavigationAction,
   Typography,
   Box,
   Toolbar,
