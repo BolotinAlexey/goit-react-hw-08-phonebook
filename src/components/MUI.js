@@ -9,6 +9,7 @@ import {
   Chip,
   Button,
   TextField,
+  Icon,
 } from '@mui/material';
 
 const MUI = {
@@ -22,5 +23,6 @@ const MUI = {
   Chip,
   Button,
   TextField,
+  Icon,
 };
 export default MUI;
