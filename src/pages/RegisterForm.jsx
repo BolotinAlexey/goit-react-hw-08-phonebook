@@ -51,8 +51,8 @@ export default function RegisterForm() {
             label="Name"
             helperText="Please enter your name"
             focused
-            name="email"
-            value={email}
+            name="name"
+            value={name}
             onChange={handleChange}
           />
         </label>
