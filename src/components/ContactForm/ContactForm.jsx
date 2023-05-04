@@ -1,4 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form } from './ContactForm.styled';
 import { addContact } from 'redux/contacts/operations';
@@ -9,12 +10,14 @@ function ContactForm() {
   const contacts = useSelector(selectContacts);
 
   const handlerSubmit = e => {
-    console.log(contacts);
     e.preventDefault();
 
     const name = e.target.elements.name.value;
     if (contacts.find(el => el.name === name)) {
-      alert(name + ' already exists in the phone book');
+      Notiflix.Notify.warning(
+        'Name "' + name + '" already exists in the phone book'
+      );
+
       e.target.reset();
       return;
     }

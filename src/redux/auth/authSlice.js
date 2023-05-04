@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 import { register, logIn, logOut, fetchCurrentUser } from './authOperations';
 
 const initialState = {
@@ -17,15 +18,25 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [register.rejected](_, action) {
+      Notiflix.Notify.warning(action.payload);
+    },
+
     [logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [logIn.rejected](_, action) {
+      Notiflix.Notify.warning(action.payload);
+    },
     [logOut.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
+    },
+    [logOut.rejected](_, action) {
+      Notiflix.Notify.warning(action.payload);
     },
     [fetchCurrentUser.pending](state) {
       state.isFetchingCurrentUser = true;
@@ -35,7 +46,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
-    [fetchCurrentUser.rejected](state) {
+    [fetchCurrentUser.rejected](state, action) {
       state.isFetchingCurrentUser = false;
     },
   },

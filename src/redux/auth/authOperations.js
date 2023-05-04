@@ -14,7 +14,6 @@ const unsetToken = () => {
 /*
  * POST @ /users/signup
  * body: { name, email, password }
- * После успешной регистрации добавляем токен в HTTP-заголовок
  */
 export const register = createAsyncThunk(
   'auth/register',
@@ -32,7 +31,6 @@ export const register = createAsyncThunk(
 /*
  * POST @ /users/login
  * body: { email, password }
- * После успешного логина добавляем токен в HTTP-заголовок
  */
 export const logIn = createAsyncThunk(
   'auth/login',
@@ -50,7 +48,6 @@ export const logIn = createAsyncThunk(
 /*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
- * После успешного логаута, удаляем токен из HTTP-заголовка
  */
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
@@ -64,10 +61,6 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
  * GET @ /users/current
  * headers:
  *    Authorization: Bearer token
- *
- * 1. Забираем токен из стейта через getState()
- * 2. Если токена нет, выходим не выполняя никаких операций
- * 3. Если токен есть, добавляет его в HTTP-заголовок и выполянем операцию
  */
 export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
@@ -82,7 +75,6 @@ export const fetchCurrentUser = createAsyncThunk(
     setToken(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      console.log('opera', data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
