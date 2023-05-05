@@ -4,13 +4,11 @@ import { logOut } from 'redux/auth/authOperations.js';
 import MUI from 'components/MUI.js';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-import { ContainerUserMenu } from './UserMenu.styled.js';
-
 export default function UserMenu() {
   const dispatch = useDispatch();
   const { user } = useAuth();
   return (
-    <ContainerUserMenu>
+    <>
       <MUI.Box
         sx={{
           display: 'flex',
@@ -34,6 +32,6 @@ export default function UserMenu() {
           Log Out
         </MUI.Button>
       </MUI.Box>
-    </ContainerUserMenu>
+    </>
   );
 }
