@@ -5,7 +5,7 @@ import AppBar from 'components/AppBar/AppBar';
 
 import MUI from 'components/MUI';
 
-export default function Layout({ children }) {
+export default function Layout() {
   return (
     <>
       <AppBar />
