@@ -6,6 +6,5 @@ export default function PrivateRoute({
   redirectTo = '/',
 }) {
   const { isLoggedIn, isRefreshing } = useAuth();
-
   return isLoggedIn || isRefreshing ? Component : <Navigate to={redirectTo} />;
 }
